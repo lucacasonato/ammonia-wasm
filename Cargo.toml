@@ -1,0 +1,16 @@
+[package]
+name = "ammonia-wasm"
+version = "0.1.0"
+authors = ["Luca Casonato <lucacasonato@yahoo.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.74"
+ammonia = "3.1.2"
+
+[profile.release]
+lto = true
+opt-level = 3
