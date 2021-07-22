@@ -18,7 +18,7 @@ WASM bindings for the
 ## How to use
 
 ```ts
-import * as ammonia from "https://deno.land/x/ammonia@0.1.0/mod.ts";
+import * as ammonia from "https://deno.land/x/ammonia@0.2.0/mod.ts";
 await ammonia.init();
 
 ammonia.clean("XSS<script>attack</script>"); // XSS
