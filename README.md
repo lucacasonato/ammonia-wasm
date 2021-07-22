@@ -1,5 +1,7 @@
 # ammonia-wasm
 
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/ammonia@0.3.0/mod.ts)
+
 WASM bindings for the
 [Ammonia HTML sanitizer](https://github.com/rust-ammonia/ammonia).
 
@@ -18,11 +20,21 @@ WASM bindings for the
 ## How to use
 
 ```ts
-import * as ammonia from "https://deno.land/x/ammonia@0.2.0/mod.ts";
+import * as ammonia from "https://deno.land/x/ammonia@0.3.0/mod.ts";
 await ammonia.init();
 
+// Simple cleaning with conservative defaults.
 ammonia.clean("XSS<script>attack</script>"); // XSS
+
+// Custom options
+const builder = new ammonia.AmmoniaBuilder();
+builder.tags.delete("p"); // strip the <p> tag
+const cleaner = builder.build();
+ammonia.clean("foo<p>bar</p>"); // foobar
 ```
+
+For exact details on the options on `AmmoniaBuilder` or any other API, view
+[deno doc](https://doc.deno.land/https/deno.land/x/ammonia@0.3.0/mod.ts).
 
 ## Thanks
 
