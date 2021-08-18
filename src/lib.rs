@@ -5,6 +5,9 @@ use js_sys::TypeError;
 use serde::Deserialize;
 use wasm_bindgen::prelude::*;
 
+#[global_allocator]
+static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+
 #[wasm_bindgen]
 pub fn clean(src: &str) -> String {
     ammonia::clean(src)
