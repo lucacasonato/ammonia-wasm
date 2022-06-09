@@ -210,7 +210,7 @@ export class AmmoniaBuilder {
    *
    * None
    */
-  setTagAttributeValues: Map<string, Map<string, Set<string>>> = new Map([]);
+  setTagAttributeValues: Map<string, Map<string, string>> = new Map([]);
 
   /**
    * Sets the attributes that are allowed on any tag.
